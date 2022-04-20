@@ -4,13 +4,12 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Anova {
-    private double[][] values;
-    private double[] meanAlternatives;
-    private double[][] errors;
-    private double[] alphas;
+    private final double[][] values;
+    private final double[] meanAlternatives;
+    private final double[][] errors;
+    private final double[] alphas;
     private double totalMeanAlternatives;
     private double SST;
     private double SSE;
@@ -20,9 +19,8 @@ public class Anova {
     private double computedF;
     private double tableF;
     public List<String> contrastResults = new ArrayList<>();
-    //private double c; // za računanje kontrasta
-    private int n; // broj mjerenja
-    private int k; // broj alternativa
+    private final int n; // broj mjerenja
+    private final int k; // broj alternativa
 
     public Anova(int n, int k, double[][] values) {
         this.n = n;
@@ -132,16 +130,13 @@ public class Anova {
     }
 
     public void calculateErrors() {
-        //System.out.print("\n Errors");
         for (int i = 0; i < n; i++)
             for (int j = 0; j < k; j++) {
                 errors[i][j] = values[i][j] - meanAlternatives[j];
-                //System.out.print(errors[i][j] + " ");
             }
     }
 
     private void calculateMeanOfAlternatives() {
-        //System.out.print("Srednja vrijednost alternativa ");
         for (int i = 0; i < k; i++) {
             meanAlternatives[i] = getMeanOfAlternative(i);
         }
@@ -152,7 +147,6 @@ public class Anova {
         for (int i = 0; i < n; i++) {
             sum += values[i][j];
         }
-        //System.out.print((sum / n) + " ");
         return sum / n;
     }
 
