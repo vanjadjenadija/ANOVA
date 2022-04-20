@@ -137,7 +137,7 @@ public class Main extends Application {
                 Insets(0, 10, 10, 10));
         Scene scene = new Scene(root, 1200, 600);
         primaryStage.setTitle("ANOVA & contrasts");
-        String path = ".\\ANOVA\\aaa.png";
+        String path = ".\\ANOVA\\A.png";
         Image applicationIcon = new Image(new File(path).toURI().toString());
         primaryStage.getIcons().add(applicationIcon);
         primaryStage.setScene(scene);
